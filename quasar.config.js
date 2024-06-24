@@ -18,7 +18,14 @@ module.exports = configure(function (/* ctx */) {
     // app boot file (/src/boot)
     // --> boot files are part of "main.js"
     // https://v2.quasar.dev/quasar-cli-vite/boot-files
-    boot: ["constants", "initialzation"],
+    boot: [
+      "constants",
+      "initialzation",
+      "loading-plugin",
+      "loading-bar-plugin",
+      "quasar-lang-pack",
+      "i18n",
+    ],
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#css
     css: ["app.scss"],
@@ -44,7 +51,7 @@ module.exports = configure(function (/* ctx */) {
         node: "node20",
       },
 
-      vueRouterMode: "hash", // available values: 'hash', 'history'
+      vueRouterMode: "history", // available values: 'hash', 'history'
       // vueRouterBase,
       // vueDevtools,
       // vueOptionsAPI: false,
@@ -84,6 +91,7 @@ module.exports = configure(function (/* ctx */) {
 
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#framework
     framework: {
+      lang: "ko-KR",
       cssAddon: false, // https://quasar.dev/layout/grid/introduction-to-flexbox#flex-addons
       config: {
         screen: {
@@ -102,7 +110,14 @@ module.exports = configure(function (/* ctx */) {
       // directives: [],
 
       // Quasar plugins
-      plugins: ["LocalStorage"],
+      plugins: ["LocalStorage", "Loading", "LoadingBar", "Meta"],
+      // config: {
+      //   loading: {
+      //     delay: 0,
+      //     message: "loading..........",
+      //     spinnerSize: 20,
+      //   },
+      // },
     },
 
     // animations: 'all', // --- includes all animations

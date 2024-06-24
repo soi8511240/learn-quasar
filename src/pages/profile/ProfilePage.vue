@@ -1,5 +1,76 @@
 <template>
   <q-page class="q-pa-xl">
+    <section>
+      <div class="row q-gutter-x-lg no-wrap">
+        <div class="col-auto q-py-lg col-md-auto flex flex-center">
+          <q-avatar size="150px">
+            <q-img src="https://picsum.photos/id/1/150" />
+          </q-avatar>
+        </div>
+        <div class="col-grow column justify-between q-gutter-y-lg">
+          <div class="row items-center q-gutter-x-sm justify-between">
+            <span class="text-h6 text-weight-bolder">Name</span>
+            <div class="q-gutter-x-sm">
+              <q-btn outline label="프로필 편집" />
+              <q-btn outline label="프로필 편집" />
+              <q-btn outline label="프로필 편집" />
+              <q-btn flat color="secondary" icon="more_horiz" />
+            </div>
+          </div>
+          <div class="q-gutter-x-md">
+            <span>게시물 123</span>
+            <span>게시물 123</span>
+            <span>게시물 123</span>
+          </div>
+          <div>
+            어쩌고<br />
+            저쩌고<br />
+            그리고
+          </div>
+        </div>
+      </div>
+      <div class="row no-wrap scroll justify-between q-gutter-x-lg q-mt-lg">
+        <div class="col-auto column" v-for="n in 20" :key="n">
+          <q-avatar size="120">
+            <img src="https://picsum.photos/id/1/120" alt="" />
+          </q-avatar>
+          <div class="text-center q-mt-sm">제목</div>
+        </div>
+      </div>
+    </section>
+    <section class="q-mt-xl">
+      <q-tabs
+        class="q-mb-lg"
+        v-model="tab"
+        inline-label
+        switch-indicator
+        indicator-color="primary"
+      >
+        <q-route-tab
+          :ripple="false"
+          icon="edit"
+          label="게시글"
+          to="/profile"
+          exact
+        />
+        <q-route-tab
+          :ripple="false"
+          icon="bookmark_border"
+          label="저장됨"
+          to="/profile/saved"
+          exact
+        />
+        <q-route-tab
+          :ripple="false"
+          icon="bookmark"
+          label="태그됨"
+          to="/profile/taged"
+          exact
+        />
+      </q-tabs>
+      <router-view />
+    </section>
+
     <section class="q-mb-xl">
       <div class="text-h4">FlexBox - Col</div>
       <q-separator class="q-my-md" />
@@ -76,7 +147,10 @@
   </q-page>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+const tab = ref("mails");
+</script>
 
 <style lang="scss" scoped>
 .square {

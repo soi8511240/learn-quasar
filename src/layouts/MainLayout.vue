@@ -11,7 +11,8 @@
           @click="toggleLeftDrawer"
         />
 
-        <q-toolbar-title> Quasar App </q-toolbar-title>
+        <q-toolbar-title> {{ $t("productName") }} </q-toolbar-title>
+        <q-btn stretch flat label="Sub Layout" to="/sub" />
         <q-btn
           flat
           round
@@ -19,8 +20,22 @@
           :icon="$q.dark.isActive ? 'light_mode' : 'dark_mode'"
           @click="toggleDarkmode"
         />
-
-        <div></div>
+        <q-btn round>
+          <q-avatar>
+            <img src="https://cdn.quasar.dev/img/avatar2.jpg" />
+          </q-avatar>
+          <q-menu :offset="[0, 10]">
+            <q-list style="min-width: 100px">
+              <q-item clickable v-close-popup to="/profile">
+                <q-item-section>Profile</q-item-section>
+              </q-item>
+              <q-separator />
+              <q-item clickable v-close-popup to="/auth/sign-in">
+                <q-item-section>로그아웃</q-item-section>
+              </q-item>
+            </q-list>
+          </q-menu>
+        </q-btn>
       </q-toolbar>
     </q-header>
     <q-drawer
@@ -91,11 +106,29 @@ const linksList = [
     icon: "school",
     to: "/flex-grid-1",
   },
+  // {
+  //   title: "Flex Grid - 2",
+  //   caption: "quasar.dev",
+  //   icon: "school",
+  //   to: "/profile",
+  // },
   {
-    title: "Flex Grid - 2",
+    title: "Form Handling",
     caption: "quasar.dev",
     icon: "school",
-    to: "/flex-grid-2",
+    to: "/form-handling",
+  },
+  {
+    title: "Quasar Utils",
+    caption: "quasar.dev",
+    icon: "school",
+    to: "/quasar-utils",
+  },
+  {
+    title: "Quasar Language Packs",
+    caption: "quasar.dev",
+    icon: "school",
+    to: "/quasar-language-packs",
   },
 ];
 </script>
