@@ -58,6 +58,20 @@
           "avoid" }
         </q-card-section>
       </q-card>
+      <q-separator class="q-my-md" />
+      <q-card dark bordered class="bg-grey-9 my-card">
+        <q-card-section>
+          <div class="text-h6">공식문서 가이드 페이지</div>
+        </q-card-section>
+        <q-separator dark inset />
+        <q-card-section>
+          <q-btn
+            label="https://quasar.dev/start/vs-code-configuration/"
+            color="black"
+            @click="goOutLink"
+          />
+        </q-card-section>
+      </q-card>
     </section>
   </q-page>
 </template>
@@ -73,9 +87,13 @@ const metaData = {
 </script>
 
 <script setup>
-import { useMeta } from "quasar";
+import { useMeta, useQuasar } from "quasar";
 
 useMeta(metaData);
+
+const goOutLink = (e) => {
+  window.open(e.target.textContent);
+};
 </script>
 
 <style lang="scss" scoped></style>
