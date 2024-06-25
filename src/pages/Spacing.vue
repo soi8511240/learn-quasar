@@ -68,7 +68,10 @@
         </q-card-section>
 
         <q-card-section>
-          {{ lorem }}
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo possimus
+          tempora pariatur, quibusdam similique alias vitae eveniet, numquam
+          veniam adipisci maiores, dignissimos placeat impedit. Porro fugit
+          suscipit cum obcaecati eligendi?
         </q-card-section>
 
         <q-separator dark />

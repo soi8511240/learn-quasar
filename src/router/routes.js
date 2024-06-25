@@ -5,6 +5,10 @@ const routes = [
     children: [
       { path: "", component: () => import("src/pages/IndexPage.vue") },
       {
+        path: "setup-guide",
+        component: () => import("src/pages/SetupGuideQ.vue"),
+      },
+      {
         path: "typography",
         component: () => import("src/pages/Typography.vue"),
       },
@@ -93,6 +97,16 @@ const routes = [
     children: [
       { path: "sign-in", component: () => import("src/pages/auth/SignIn.vue") },
       { path: "sign-up", component: () => import("src/pages/auth/SignUp.vue") },
+    ],
+  },
+  {
+    path: "/youtube",
+    component: () => import("layouts/youtube/index.vue"),
+    children: [
+      {
+        path: "",
+        component: () => import("src/layouts/youtube/YoutubeContent.vue"),
+      },
     ],
   },
 

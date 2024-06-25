@@ -44,6 +44,10 @@
       :breakpoint="0"
       bordered
       :icon="darkModeIcon"
+      behavior="desktop"
+      persistent
+      no-swipe-close
+      draggable="false"
     >
       <q-scroll-area class="fit" :horizontal-thumb-style="{ opacity: 0 }">
         <q-list>
@@ -70,6 +74,12 @@
 
 <script>
 const linksList = [
+  {
+    title: "Quasar setup guide",
+    caption: "quasar.dev",
+    icon: "school",
+    to: "setup-guide",
+  },
   {
     title: "Typography",
     caption: "quasar.dev",
@@ -129,6 +139,12 @@ const linksList = [
     caption: "quasar.dev",
     icon: "school",
     to: "/quasar-language-packs",
+  },
+  {
+    title: "Youtube clone coding",
+    caption: "quasar.dev",
+    icon: "school",
+    to: "/youtube",
   },
 ];
 </script>
