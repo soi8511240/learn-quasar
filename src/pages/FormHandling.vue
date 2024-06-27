@@ -3,6 +3,7 @@
     <section class="q-mb-xl">
       <div class="text-h4">QForm Component</div>
       <q-separator class="q-my-md" />
+      <div class="q-gutter-y-md"></div>
       <q-form
         class="q-gutter-y-md q-mt-lg"
         greedy
@@ -61,6 +62,7 @@
           </template>
         </q-input>
 
+        <q-avatar></q-avatar>
         <q-toggle :label="`동의하시겟습니까?`" v-model="form.accapt" />
         <!-- false-value="Disagreed"
           true-value="Agreed" -->

@@ -1,14 +1,16 @@
 <template>
-  <q-header height-hint="64" bordered>
-    <q-toolbar>
+  <q-header class="bg-white">
+    <q-toolbar class="bg-white">
       <q-btn flat dense icon="menu" color="black" class="q-mr-sm" />
+
       <q-avatar>
         <q-img src="~/assets/sample.png" />
       </q-avatar>
       <q-toolbar-title class="text-primary" shrink>Quasar</q-toolbar-title>
       <q-space />
-      <div class="row items-center">
+      <div class="row items-center search">
         <q-input
+          class="col-grow"
           outlined
           dense
           square
@@ -29,10 +31,19 @@
           unelevated
           color="grey-3"
           text-color="black"
+          padding="sm"
         />
-        <q-btn icon="mic" outlined dense unelevated />
+        <q-btn
+          icon="mic"
+          outlined
+          dense
+          unelevated
+          padding="sm"
+          text-color="black"
+        />
       </div>
       <q-space />
+
       <q-btn icon="more_vert" dense flat class="q-mr-sm" />
       <q-btn
         label="로그인"
@@ -53,7 +64,24 @@ const isSearchFocus = ref(false);
 </script>
 
 <style lang="scss" scoped>
-.input_search {
-  width: 300px;
+.q-toolbar {
+  height: 55px;
+  border-style: solid;
+  border-width: 0 0 1px 0;
+  border-color: #c9c9c9;
+}
+
+.search {
+  min-width: 100px;
+  max-width: 600px;
+  width: 55%;
+  &-btn {
+    border-style: solid;
+    border-width: 1px 1px 1px 0;
+    border-color: #000;
+    max-width: 60px;
+    width: 100%;
+    height: 40px;
+  }
 }
 </style>

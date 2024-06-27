@@ -21,41 +21,45 @@
         <q-card-section>
           "compilerOptions":{<br />
           },<br />
-          <span class="bg-dark">"jsx": "preserve"</span>
+          <q-btn
+            flat
+            dense
+            class="bg-dark"
+            @click="copyText"
+            no-caps
+            :ripple="false"
+          >
+            "jsx": "preserve"
+          </q-btn>
         </q-card-section>
       </q-card>
       <q-separator class="q-my-md" />
       <q-card dark bordered class="bg-grey-9 my-card">
+        <q-card dark bordered class="bg-grey-9 my-card">
+          <q-card-section>
+            <div class="text-h6">Step3. eslint 설정</div>
+          </q-card-section>
+        </q-card>
+        <q-separator dark inset />
         <q-card-section>
-          <div class="text-h6">Step3. eslint 설정</div>
+          vscode Extension : eslint off, Prettier on<br />
+          add Extension : my-quasar-intellisense
         </q-card-section>
         <q-separator dark inset />
         <q-card-section>
-          vscode Extension : eslint off, Prettier on
-        </q-card-section>
-        <q-separator dark inset />
-        <q-card-section>
-          // root - .prettier<br />
-          { "singleQuote": true, "semi": true, "tabWidth": 2, "trailingComma":
-          "all", "printWidth": 80, "bracketSpacing": true, "arrowParens":
-          "avoid" }
-        </q-card-section>
-      </q-card>
-      <q-separator class="q-my-md" />
-      <q-card dark bordered class="bg-grey-9 my-card">
-        <q-card-section>
-          <div class="text-h6">vscode setting</div>
-        </q-card-section>
-        <q-separator dark inset />
-        <q-card-section>
-          vscode Extension : eslint off, Prettier on
-        </q-card-section>
-        <q-separator dark inset />
-        <q-card-section>
-          // root - .prettier<br />
-          { "singleQuote": true, "semi": true, "tabWidth": 2, "trailingComma":
-          "all", "printWidth": 80, "bracketSpacing": true, "arrowParens":
-          "avoid" }
+          // root - .prettierrrc<br />
+          <q-btn
+            flat
+            dense
+            class="bg-dark"
+            @click="copyText"
+            no-caps
+            :ripple="false"
+          >
+            { "singleQuote": true, "semi": true, "tabWidth": 2, "trailingComma":
+            "all", "printWidth": 80, "bracketSpacing": true, "arrowParens":
+            "avoid" }
+          </q-btn>
         </q-card-section>
       </q-card>
       <q-separator class="q-my-md" />
@@ -66,6 +70,7 @@
         <q-separator dark inset />
         <q-card-section>
           <q-btn
+            no-caps
             label="https://quasar.dev/start/vs-code-configuration/"
             color="black"
             @click="goOutLink"
@@ -87,9 +92,20 @@ const metaData = {
 </script>
 
 <script setup>
-import { useMeta, useQuasar } from "quasar";
+import { useMeta, copyToClipboard, useQuasar } from "quasar";
 
 useMeta(metaData);
+
+const $q = useQuasar();
+
+const copyText = (e) => {
+  const text = e.target.textContent;
+  copyToClipboard(text).then(() =>
+    $q.notify({
+      message: `${text} has been copied to clipboard.`,
+    })
+  );
+};
 
 const goOutLink = (e) => {
   window.open(e.target.textContent);

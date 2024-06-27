@@ -92,7 +92,7 @@ module.exports = configure(function (/* ctx */) {
     // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#framework
     framework: {
       lang: "ko-KR",
-      cssAddon: false, // https://quasar.dev/layout/grid/introduction-to-flexbox#flex-addons
+      cssAddon: true, // https://quasar.dev/layout/grid/introduction-to-flexbox#flex-addons
       config: {
         screen: {
           bodyClasses: true, // <<< add this
@@ -110,14 +110,15 @@ module.exports = configure(function (/* ctx */) {
       // directives: [],
 
       // Quasar plugins
-      plugins: ["LocalStorage", "Loading", "LoadingBar", "Meta"],
-      // config: {
-      //   loading: {
-      //     delay: 0,
-      //     message: "loading..........",
-      //     spinnerSize: 20,
-      //   },
-      // },
+      plugins: ["LocalStorage", "Loading", "LoadingBar", "Meta", "Notify"],
+      config: {
+        // notify:
+        //   loading: {
+        //     delay: 0,
+        //     message: "loading..........",
+        //     spinnerSize: 20,
+        //   },
+      },
     },
 
     // animations: 'all', // --- includes all animations
